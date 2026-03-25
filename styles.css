@@ -1,0 +1,120 @@
+:root {
+  --bg: #111217;
+  --panel: #1a1c24;
+  --screen: #0c0d12;
+  --accent: #f5c84c;
+  --accent-dark: #d8a82d;
+  --text: #f5f6f8;
+  --muted: #aab0c0;
+  --border: #2a2d3a;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(1200px 600px at 20% -10%, #2b2f42 0%, transparent 60%),
+    radial-gradient(1000px 600px at 120% 20%, #1f2231 0%, transparent 55%),
+    var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.calc {
+  width: min(420px, 92vw);
+  background: linear-gradient(180deg, #1c1f2a 0%, var(--panel) 100%);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: var(--shadow);
+}
+
+.calc h1 {
+  margin: 0 0 14px;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+}
+
+.screen {
+  background: linear-gradient(180deg, #0f1118 0%, var(--screen) 100%);
+  border: 1px solid #202230;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 18px;
+}
+
+.screen-label {
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.screen-value {
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 6px;
+  word-break: break-all;
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px 12px;
+  background: #12141c;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(245, 200, 76, 0.15);
+}
+
+button {
+  width: 100%;
+  padding: 12px 14px;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-dark) 100%);
+  border: none;
+  border-radius: 10px;
+  color: #1a1c24;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.08s ease, filter 0.2s ease;
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.footer {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+}

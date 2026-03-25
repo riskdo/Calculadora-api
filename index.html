@@ -1,0 +1,83 @@
+﻿<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Calculadora API</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="calc">
+      <h1>Calculadora</h1>
+
+      <div class="screen">
+        <div class="screen-label">Resultado</div>
+        <div id="resultado" class="screen-value">—</div>
+      </div>
+
+      <div class="grid">
+        <div>
+          <label for="numero1">Número 1</label>
+          <input id="numero1" type="number" step="any" />
+        </div>
+
+        <div>
+          <label for="operacao">Operação</label>
+          <select id="operacao">
+            <option value="somar">Somar</option>
+            <option value="subtrair">Subtrair</option>
+            <option value="multiplicar">Multiplicar</option>
+            <option value="dividir">Dividir</option>
+            <option value="potencia">Potência</option>
+            <option value="raiz">Raiz</option>
+            <option value="media">Média</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="numero2">Número 2</label>
+          <input id="numero2" type="number" step="any" />
+        </div>
+
+        <button id="btnCalcular">Calcular</button>
+      </div>
+
+      <div class="footer">API No meu Servidor</div>
+    </div>
+
+    <script>
+      const btn = document.getElementById("btnCalcular");
+      const resultadoEl = document.getElementById("resultado");
+
+      btn.addEventListener("click", async () => {
+        const numero1 = parseFloat(document.getElementById("numero1").value);
+        const numero2 = parseFloat(document.getElementById("numero2").value);
+        const operacao = document.getElementById("operacao").value;
+
+        if (Number.isNaN(numero1) || Number.isNaN(numero2)) {
+          resultadoEl.textContent = "Preencha os dois números";
+          return;
+        }
+
+        try {
+          const response = await fetch(`http://127.0.0.1:8000/${operacao}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ numero1, numero2 })
+          });
+
+          const data = await response.json();
+
+          if (!response.ok) {
+            resultadoEl.textContent = data.detail || "Erro ao calcular";
+            return;
+          }
+
+          resultadoEl.textContent = data.resultado;
+        } catch (err) {
+          resultadoEl.textContent = "Erro de conexão com a API";
+        }
+      });
+    </script>
+  </body>
+</html>
