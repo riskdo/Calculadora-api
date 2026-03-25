@@ -1,6 +1,6 @@
 ﻿# Calculador-api
 
-Projeto Avaliativo desenvolvido para disciplina programação de sistemas distribuidos da universidade dos grandes lagos - UNILAGO sob supervisão do professor Gleydes Oliveira, com menção ao perfil @gleydes.
+Projeto Avaliativo desenvolvido para disciplina programação de sistemas distribuidos da universidade dos grandes lagos - UNILAGO sob supervisão do professor Gleydes Oliveira, com menção ao perfil @gleydes (https://github.com/gleydes).
 
 ## Visao Geral
 API de calculadora com operacoes basicas e uma interface simples em HTML + JS que consome a API.
